@@ -5,7 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
 </head>
-<body style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background: linear-gradient(135deg, #6a11cb, #2575fc); color: white; font-family: Arial, sans-serif;">
-    <h1 style="font-size: 3rem; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);">Welcome to the Marks Predictor App</h1>
+<body style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; margin: 0; background: linear-gradient(135deg, #ff7eb3, #6a11cb, #2575fc); color: white; font-family: 'Poppins', sans-serif; animation: gradientBG 6s infinite alternate; overflow: hidden;">
+    <h1 style="font-size: 4rem; text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3); margin-bottom: 30px; transform: scale(1); animation: pulse 3s infinite;">
+        Welcome to the Marks Predictor App!
+    </h1>
+    <a href="/predictdata" style="text-decoration: none; background: linear-gradient(135deg, #6a11cb, #ff7eb3); color: white; padding: 15px 30px; font-size: 1.8rem; border-radius: 50px; box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); font-weight: bold; transition: transform 0.3s, box-shadow 0.3s, background 0.3s; text-align: center; overflow: hidden; position: relative;">
+        Go to Prediction
+        <span style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.1); border-radius: 50px; z-index: -1; transition: opacity 0.3s;"></span>
+    </a>
 </body>
+
+<style>
+    @keyframes gradientBG {
+        0% {
+            background: linear-gradient(135deg, #ff7eb3, #6a11cb, #2575fc);
+        }
+        100% {
+            background: linear-gradient(135deg, #2575fc, #6a11cb, #ff7eb3);
+        }
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.05);
+        }
+    }
+
+    a:hover {
+        transform: scale(1.1);
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    a:hover span {
+        opacity: 0.2;
+    }
+</style>
 </html>

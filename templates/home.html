@@ -1,22 +1,29 @@
-<html>
-<body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background: linear-gradient(135deg, #ce78f3, #af4261); min-height: 100vh; display: flex; justify-content: center; align-items: center;">
-    <div class="login" style="background: white; padding-left: 20px;padding-right: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); max-width: 400px; width: 100%;">
-        <h1 style="text-align: center; color: #af4261; margin-bottom: -8px;">Student Exam Performance Indicator</h1>
-        <form action="{{ url_for('predict_datapoint')}}" method="post" style="display: flex; flex-direction: column; gap: 10px;">
-            <h1 style="font-size: 1.25rem; text-align: center; color: #333;">Student Exam Performance Prediction</legend>
-            </h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Exam Performance</title>
+</head>
+<body style="font-family: 'Poppins', Arial, sans-serif; margin: 0; padding: 0; background: linear-gradient(135deg, #ff758c, #ff7eb3, #ffc3a0); min-height: 100vh; display: flex; justify-content: center; align-items: center; overflow: hidden;">
+    <div class="login" style="background: white; padding-left: 40px;padding-right: 40px; padding-top: 10px;padding-bottom: 10x; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); max-width: 450px; width: 90%; position: relative; overflow: hidden; transform: scale(1); transition: transform 0.3s ease;">
+        <h1 style="text-align: center; color: #ff758c; font-size: 1.5rem; font-weight: bold; margin-bottom: 0px; text-shadow: 2px 2px 10px rgba(255, 117, 140, 0.5);">
+            Student Exam Performance
+        </h1>
+        <form action="{{ url_for('predict_datapoint') }}" method="post" style="display: flex; flex-direction: column; gap: 10px;">
+            <h2 style="font-size: 1rem; text-align: center; color: #666; margin-bottom: 10px; text-transform: uppercase;">Performance Prediction</h2>
             <div class="mb-3">
-                <label class="form-label" style="font-weight: bold; color: #555;">Gender</label>
-                <select class="form-control" name="gender" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;" required>
-                    <option class="placeholder" selected disabled value="">Select your Gender</option>
+                <label class="form-label" style="font-weight: bold; color: #444; font-size: 1rem;">Gender</label>
+                <select class="form-control" name="gender" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px; background-color: #fefefe; transition: all 0.3s ease; outline: none;" required>
+                    <option selected disabled value="">Select your Gender</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                 </select>
             </div>
             <div class="mb-3">
-                <label class="form-label" style="font-weight: bold; color: #555;">Race or Ethnicity</label>
-                <select class="form-control" name="ethnicity" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;" required>
-                    <option class="placeholder" selected disabled value="">Select Ethnicity</option>
+                <label class="form-label" style="font-weight: bold; color: #444; font-size: 1rem;">Race or Ethnicity</label>
+                <select class="form-control" name="ethnicity" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px; background-color: #fefefe; transition: all 0.3s ease; outline: none;" required>
+                    <option selected disabled value="">Select Ethnicity</option>
                     <option value="group A">Group A</option>
                     <option value="group B">Group B</option>
                     <option value="group C">Group C</option>
@@ -25,46 +32,48 @@
                 </select>
             </div>
             <div class="mb-3">
-                <label class="form-label" style="font-weight: bold; color: #555;">Parental Level of Education</label>
-                <select class="form-control" name="parental_level_of_education" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;" required>
-                    <option class="placeholder" selected disabled value="">Select Parent Education</option>
-                    <option value="associate's degree">associate's degree</option>
-                    <option value="bachelor's degree">bachelor's degree</option>
-                    <option value="high school">high school</option>
-                    <option value="master's degree">master's degree</option>
-                    <option value="some college">some college</option>
-                    <option value="some high school">some high school</option>
+                <label class="form-label" style="font-weight: bold; color: #444; font-size: 1rem;">Parental Level of Education</label>
+                <select class="form-control" name="parental_level_of_education" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px; background-color: #fefefe; transition: all 0.3s ease; outline: none;" required>
+                    <option selected disabled value="">Select Education Level</option>
+                    <option value="associate's degree">Associate's degree</option>
+                    <option value="bachelor's degree">Bachelor's degree</option>
+                    <option value="high school">High School</option>
+                    <option value="master's degree">Master's degree</option>
+                    <option value="some college">Some College</option>
+                    <option value="some high school">Some High School</option>
                 </select>
             </div>
             <div class="mb-3">
-                <label class="form-label" style="font-weight: bold; color: #555;">Lunch Type</label>
-                <select class="form-control" name="lunch" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;" required>
-                    <option class="placeholder" selected disabled value="">Select Lunch Type</option>
-                    <option value="free/reduced">free/reduced</option>
-                    <option value="standard">standard</option>
+                <label class="form-label" style="font-weight: bold; color: #444; font-size: 1rem;">Lunch Type</label>
+                <select class="form-control" name="lunch" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px; background-color: #fefefe; transition: all 0.3s ease; outline: none;" required>
+                    <option selected disabled value="">Select Lunch Type</option>
+                    <option value="free/reduced">Free/Reduced</option>
+                    <option value="standard">Standard</option>
                 </select>
             </div>
             <div class="mb-3">
-                <label class="form-label" style="font-weight: bold; color: #555;">Test preparation Course</label>
-                <select class="form-control" name="test_preparation_course" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;" required>
-                    <option class="placeholder" selected disabled value="">Select Test_course</option>
+                <label class="form-label" style="font-weight: bold; color: #444; font-size: 1rem;">Test Preparation Course</label>
+                <select class="form-control" name="test_preparation_course" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px; background-color: #fefefe; transition: all 0.3s ease; outline: none;" required>
+                    <option selected disabled value="">Select Preparation Course</option>
                     <option value="none">None</option>
                     <option value="completed">Completed</option>
                 </select>
             </div>
             <div class="mb-3">
-                <label class="form-label" style="font-weight: bold; color: #555;">Writing Score out of 100</label>
-                <input class="form-control" type="number" name="reading_score" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;" placeholder="Enter your Reading score" min='0' max='100' />
+                <label class="form-label" style="font-weight: bold; color: #444; font-size: 1rem;">Writing Score</label>
+                <input type="number" name="writing_score" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px; background-color: #fefefe; outline: none; transition: all 0.3s ease;" placeholder="Enter your Writing Score" min="0" max="100" required />
             </div>
             <div class="mb-3">
-                <label class="form-label" style="font-weight: bold; color: #555;">Reading Score out of 100</label>
-                <input class="form-control" type="number" name="writing_score" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;" placeholder="Enter your Reading Score" min='0' max='100' />
+                <label class="form-label" style="font-weight: bold; color: #444; font-size: 1rem;">Reading Score</label>
+                <input type="number" name="reading_score" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px; background-color: #fefefe; outline: none; transition: all 0.3s ease;" placeholder="Enter your Reading Score" min="0" max="100" required />
             </div>
-            <div class="mb-3">
-                <input class="btn btn-primary" type="submit" value="Predict your Maths Score" style="padding: 10px; border: none; border-radius: 5px; background: #af4261; color: white; font-weight: bold; cursor: pointer;" required />
+            <div class="mb-3" style="display: flex; justify-content: center;">
+                <input type="submit" value="Predict Your Math Score" style="padding: 10px; border: none; border-radius: 15px; background: linear-gradient(135deg, #ff758c, #fbc2eb); color: white; font-size: 1.2rem; font-weight: bold; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;" 
+                onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 20px rgba(255, 117, 140, 0.5)';" 
+                onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';" />
             </div>
         </form>
-        <h2 style="text-align: center; color: #af4261;">THE prediction is {{results}}</h2>
+        <h2 style="text-align: center; color: #ff758c; font-size: 1.5rem; margin-top: 20px; text-shadow: 1px 1px 10px rgba(255, 117, 140, 0.3);">The prediction is {{results}}</h2>
     </div>
 </body>
 </html>
